@@ -1,7 +1,7 @@
 //Get response from api and show it in the html
 var request = new XMLHttpRequest()
 
-
+//CHANGE THE URL TO YOUR API URL
 request.open('GET', '/controller/question4Controller.php?query=allpic', true)
 request.onload = function () {
   // Begin accessing JSON data here
