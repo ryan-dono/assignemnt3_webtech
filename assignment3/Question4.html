@@ -76,38 +76,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-<script src="scriptPicturec.js"></script>
-<script>
-//Get response from api and show it in the html
-var request = new XMLHttpRequest()
+<script src="scriptPicture.js"></script>
 
-//CHANGE THE URL TO YOUR API URL
-request.open('GET', 'controller/Question4Controller.php?query=allpic', true)
-request.onload = function () {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response)
-
-  if (request.status >= 200 && request.status < 400) {
-    result = ""
-    data.forEach((item) => {
-      var elem = document.getElementById(item.id)
-      elem.src = item.url;
-      elem.alt = item.description;
-
-      // result += "<li>" + item.description + " ";
-    });
-    // document.getElementById("description").innerHTML = result;
-    // console.log(result);
-  } else {
-    console.log('error')
-  }
-}
-
-request.send()
-
-
-
-</script>
 
 </body>
 </html>

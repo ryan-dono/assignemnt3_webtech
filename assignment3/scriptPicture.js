@@ -1,3 +1,31 @@
+//Get response from api and show it in the html
+var request = new XMLHttpRequest()
+
+
+request.open('GET', '/controller/question4Controller.php?query=allpic', true)
+request.onload = function () {
+  // Begin accessing JSON data here
+  var data = JSON.parse(this.response)
+
+  if (request.status >= 200 && request.status < 400) {
+    result = ""
+    data.forEach((item) => {
+      var elem = document.getElementById(item.id)
+      elem.src = item.url;
+      elem.alt = item.description;
+
+      // result += "<li>" + item.description + " ";
+    });
+    // document.getElementById("description").innerHTML = result;
+    // console.log(result);
+  } else {
+    console.log('error')
+  }
+}
+
+request.send()
+
+
 
 // Get the elements with class="column"
 var elements = document.getElementsByClassName("column");
@@ -53,4 +81,3 @@ $(document).ready(function(){
     $("#panel").slideDown("slow");
   });
 });
-
